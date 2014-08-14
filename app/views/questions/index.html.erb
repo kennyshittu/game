@@ -1,0 +1,35 @@
+<%= link_to 'New Question', new_question_path %> |
+<%= link_to 'Quiz List', quizzes_path %>
+<hr>
+<center><strong><h1>All Questions</h1></strong></center>
+<center><table border = "5" width = 50%>
+    <tr>
+      <th>Text</th>
+      <th>Option1</th>
+      <th>Option2</th>
+      <th>Option3</th>
+      <th>Option4</th>
+      <th>Answer</th>
+      <th>Quiz_id</th>
+      <th colspan="3">Actions</th>
+    </tr>
+
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.Text %></td>
+        <td><%= question.option1 %></td>
+        <td><%= question.option2 %></td>
+        <td><%= question.option3 %></td>
+        <td><%= question.option4 %></td>
+        <td><%= question.answer %></td>
+        <td><%= question.quiz_id %></td>
+        <td><%= link_to 'Show', question %></td>
+        <td><%= link_to 'Edit', edit_question_path(question) %></td>
+        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+</table></center>
+
+
+
+

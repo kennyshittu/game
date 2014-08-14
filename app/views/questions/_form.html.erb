@@ -1,0 +1,50 @@
+
+
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <table border="5" color="yellow">
+  <tr>
+  <td><%= f.label :Quiz %></td>
+ <td><%= f.collection_select :quiz_id , @t, :id, :title, :prompt => "", :multiple => true %></td>
+</tr>
+
+  <tr>
+    <td><%= f.label :Text %></td>
+    <td><%= f.text_area :Text %></td>
+ </tr>
+  <tr>
+   <td> <%= f.label :option1 %></td>
+   <td> <%= f.text_field :option1 %></td>
+  </tr>
+  <tr>
+   <td> <%= f.label :option2 %></td>
+    <td><%= f.text_field :option2 %></td>
+  </tr>
+ <tr>
+    <td><%= f.label :option3 %></td>
+    <td><%= f.text_field :option3 %></td>
+  </tr>
+ <tr>
+    <td><%= f.label :option4 %></td>
+    <td><%= f.text_field :option4 %></td>
+ </tr>
+ <tr>
+    <td><%= f.label :answer %></td>
+    <td><%= f.text_field :answer %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><%= f.submit %><td>
+ <tr>
+  </table>
+<% end %>
